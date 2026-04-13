@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nandini & Pratik | Wedding Celebration</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-blue: #0d2137;
+    --teal: #0e6b6b;
+    --peacock-blue: #1a7f8f;
+    --peacock-green: #1b8a5a;
+    --gold: #c9a84c;
+    --gold-light: #e8d48b;
+    --gold-bright: #ffd700;
+    --cream: #faf5e4;
+    --cream-light: #fefcf3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--navy);
+    color: var(--cream);
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO SECTION ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(ellipse at 50% 30%, #0e3a5a 0%, #0a1628 60%, #060d18 100%);
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 120px 180px at 15% 20%, rgba(14,107,107,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 100px 160px at 85% 30%, rgba(27,138,90,0.1) 0%, transparent 70%),
+      radial-gradient(ellipse 140px 200px at 50% 80%, rgba(26,127,143,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 80px 120px at 10% 75%, rgba(201,168,76,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 90px 140px at 90% 85%, rgba(14,107,107,0.1) 0%, transparent 70%);
+    pointer-events: none;
+    animation: shimmer 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes shimmer { 0% { opacity: 0.6; } 100% { opacity: 1; } }
+
+  /* Floating gold particles */
+  .particles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+  .particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float-up linear infinite;
+  }
+
+  @keyframes float-up {
+    0% { opacity: 0; transform: translateY(100vh) scale(0); }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.3; }
+    100% { opacity: 0; transform: translateY(-10vh) scale(1); }
+  }
+
+  /* Peacock feather SVG decoration */
+  .peacock-feather { position: absolute; opacity: 0.15; pointer-events: none; }
+  .feather-left { left: -60px; top: 10%; width: 280px; transform: rotate(-15deg); }
+  .feather-right { right: -60px; top: 5%; width: 300px; transform: rotate(15deg) scaleX(-1); }
+
+  /* Mandala ring */
+  .mandala-ring {
+    position: relative;
+    width: 400px; height: 400px;
+    margin-bottom: 1rem;
+  }
+
+  .mandala-ring > svg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    animation: rotate-slow 60s linear infinite;
+  }
+
+  @keyframes rotate-slow { to { transform: rotate(360deg); } }
+
+  .mandala-ring .inner-content {
+    position: absolute;
+    inset: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  /* Ganapati SVG */
+  .ganapati-icon { width: 72px; height: 82px; margin-bottom: 0.4rem; }
+
+  /* Typography */
+  .save-the-date-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    font-weight: 300;
+  }
+
+  .couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--gold-light);
+    line-height: 1.15;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+  }
+
+  .couple-names .amp {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin: 0.05rem 0;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: rgba(250,245,228,0.7);
+    margin-top: 0.4rem;
+    font-weight: 300;
+  }
+
+  /* Divider */
+  .gold-divider {
+    width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1.5rem auto;
+  }
+
+  /* Section base */
+  .section-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  /* ===== EVENTS SECTION ===== */
+  .events-section {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 50%, var(--navy) 100%);
+  }
+
+  .events-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .events-timeline {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  /* Vertical line */
+  .events-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, var(--gold) 10%, var(--gold) 90%, transparent);
+    opacity: 0.3;
+  }
+
+  .event-card {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .event-card + .event-card { margin-top: 0.5rem; }
+
+  /* Peacock eye dot on timeline */
+  .event-dot {
+    position: absolute;
+    left: 50%; top: 2rem;
+    transform: translateX(-50%);
+    width: 16px; height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, var(--gold-bright) 20%, var(--peacock-blue) 50%, var(--teal) 75%, transparent 100%);
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(201,168,76,0.4);
+  }
+
+  .event-date-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+    font-weight: 400;
+  }
+
+  .event-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--cream);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+  }
+
+  .event-time {
+    font-size: 0.85rem;
+    color: rgba(250,245,228,0.55);
+    letter-spacing: 0.15em;
+    font-weight: 300;
+  }
+
+  .event-emoji {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* Alternate left/right on desktop */
+  @media (min-width: 601px) {
+    .event-card { width: 45%; text-align: right; }
+    .event-card:nth-child(even) { margin-left: 55%; text-align: left; }
+    .event-dot { top: 2.2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .events-timeline::before { left: 20px; }
+    .event-card { padding-left: 50px; text-align: left; width: 100%; }
+    .event-card:nth-child(even) { margin-left: 0; }
+    .event-dot { left: 20px; top: 2.2rem; }
+  }
+
+  /* ===== COUNTDOWN ===== */
+  .countdown-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background: radial-gradient(ellipse at 50% 50%, #0e2a3a 0%, var(--navy) 70%);
+    position: relative;
+  }
+
+  .countdown-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .countdown-item { display: flex; flex-direction: column; align-items: center; }
+
+  .countdown-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 80px;
+    position: relative;
+  }
+
+  .countdown-number::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0.5rem auto;
+  }
+
+  .countdown-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(250,245,228,0.6);
+    font-weight: 300;
+  }
+
+  /* ===== PEACOCK EYE BORDER ===== */
+  .peacock-border {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 2rem 0;
+    background: var(--navy);
+  }
+
+  .peacock-eye {
+    width: 18px; height: 26px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, var(--gold-bright) 15%, var(--peacock-blue) 40%, var(--teal) 60%, var(--peacock-green) 80%, transparent 100%);
+    opacity: 0.7;
+    animation: eye-pulse 3s ease-in-out infinite alternate;
+  }
+
+  .peacock-eye:nth-child(odd) { animation-delay: 0.5s; }
+  .peacock-eye:nth-child(3n) { animation-delay: 1s; }
+
+  @keyframes eye-pulse {
+    0% { opacity: 0.5; transform: scale(0.95); }
+    100% { opacity: 0.9; transform: scale(1.05); }
+  }
+
+  /* ===== RSVP SECTION ===== */
+  .rsvp-section {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 50%, var(--navy) 100%);
+    position: relative;
+  }
+
+  .rsvp-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .rsvp-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: rgba(250,245,228,0.7);
+    max-width: 480px;
+    margin: 0 auto 2.5rem auto;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .rsvp-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rsvp-button::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 1px solid var(--navy);
+    opacity: 0.15;
+    transition: opacity 0.4s ease;
+  }
+
+  .rsvp-button:hover {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold-bright), var(--gold-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,168,76,0.35);
+  }
+
+  .rsvp-button:hover::before { opacity: 0.25; }
+
+  .rsvp-note {
+    font-size: 0.75rem;
+    color: rgba(250,245,228,0.35);
+    margin-top: 1.5rem;
+    letter-spacing: 0.15em;
+    font-weight: 300;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--navy);
+    border-top: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .footer-ganapati { width: 40px; height: 40px; margin-bottom: 0.8rem; opacity: 0.5; }
+
+  .footer-text {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: var(--gold);
+  }
+
+  .footer-subtext {
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(250,245,228,0.4);
+    margin-top: 0.8rem;
+    font-weight: 300;
+  }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: bounce 2s ease-in-out infinite;
+    cursor: pointer;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(250,245,228,0.4);
+  }
+
+  .scroll-arrow {
+    width: 20px; height: 20px;
+    border-right: 1px solid var(--gold);
+    border-bottom: 1px solid var(--gold);
+    transform: rotate(45deg);
+    opacity: 0.5;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* Fade-in */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    .mandala-ring { width: 300px; height: 300px; }
+    .mandala-ring .inner-content { inset: 42px; }
+    .ganapati-icon { width: 50px; height: 50px; }
+    .couple-names { font-size: 2.1rem; }
+    .couple-names .amp { font-size: 1.2rem; }
+    .save-the-date-label { font-size: 0.65rem; }
+    .countdown-number { font-size: 2.5rem; min-width: 60px; }
+    .countdown-grid { gap: 1.2rem; }
+    .event-name { font-size: 1.3rem; }
+    .feather-left, .feather-right { width: 180px; opacity: 0.08; }
+    .feather-left { left: -40px; }
+    .feather-right { right: -40px; }
+    .rsvp-button { padding: 0.85rem 2.2rem; font-size: 0.75rem; }
+  }
+
+  @media (min-width: 601px) and (max-width: 900px) {
+    .mandala-ring { width: 350px; height: 350px; }
+    .couple-names { font-size: 2.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="particles" id="particles"></div>
+
+  <!-- Peacock feather decorations -->
+  <svg class="peacock-feather feather-left" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="eyeGrad1" cx="50%" cy="40%" r="50%">
+        <stop offset="0%" stop-color="#ffd700"/>
+        <stop offset="30%" stop-color="#1a7f8f"/>
+        <stop offset="55%" stop-color="#0e6b6b"/>
+        <stop offset="80%" stop-color="#1b8a5a"/>
+        <stop offset="100%" stop-color="transparent"/>
+      </radialGradient>
+    </defs>
+    <path d="M100 500 Q95 300 60 150 Q40 80 100 20 Q160 80 140 150 Q105 300 100 500Z" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+    <path d="M100 480 Q97 280 70 160 Q55 100 100 50 Q145 100 130 160 Q103 280 100 480Z" fill="none" stroke="#1a7f8f" stroke-width="0.5" opacity="0.4"/>
+    <ellipse cx="100" cy="120" rx="35" ry="50" fill="url(#eyeGrad1)" opacity="0.6"/>
+    <ellipse cx="100" cy="110" rx="12" ry="18" fill="#0a1628" opacity="0.7"/>
+    <ellipse cx="100" cy="108" rx="6" ry="9" fill="#ffd700" opacity="0.5"/>
+    <line x1="100" y1="200" x2="100" y2="500" stroke="#c9a84c" stroke-width="0.6" opacity="0.3"/>
+  </svg>
+
+  <svg class="peacock-feather feather-right" viewBox="0 0 200 500" xmlns="http://www.w3.org/2000/svg">
+    <path d="M100 500 Q95 300 60 150 Q40 80 100 20 Q160 80 140 150 Q105 300 100 500Z" fill="none" stroke="#c9a84c" stroke-width="0.8" opacity="0.5"/>
+    <path d="M100 480 Q97 280 70 160 Q55 100 100 50 Q145 100 130 160 Q103 280 100 480Z" fill="none" stroke="#1a7f8f" stroke-width="0.5" opacity="0.4"/>
+    <ellipse cx="100" cy="120" rx="35" ry="50" fill="url(#eyeGrad1)" opacity="0.6"/>
+    <ellipse cx="100" cy="110" rx="12" ry="18" fill="#0a1628" opacity="0.7"/>
+    <ellipse cx="100" cy="108" rx="6" ry="9" fill="#ffd700" opacity="0.5"/>
+    <line x1="100" y1="200" x2="100" y2="500" stroke="#c9a84c" stroke-width="0.6" opacity="0.3"/>
+  </svg>
+
+  <!-- Mandala ring with Ganapati + couple names -->
+  <div class="mandala-ring">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="200" r="185" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.4"/>
+      <circle cx="200" cy="200" r="178" fill="none" stroke="url(#goldGrad)" stroke-width="0.3" opacity="0.3"/>
+      <g id="featherEyes">
+        <g transform="translate(200,30)">
+          <ellipse cx="0" cy="0" rx="8" ry="12" fill="none" stroke="#c9a84c" stroke-width="0.6" opacity="0.5"/>
+          <ellipse cx="0" cy="0" rx="4" ry="6" fill="#1a7f8f" opacity="0.4"/>
+          <ellipse cx="0" cy="0" rx="2" ry="3" fill="#ffd700" opacity="0.5"/>
+        </g>
+      </g>
+      <use href="#featherEyes" transform="rotate(30, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(60, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(90, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(120, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(150, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(180, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(210, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(240, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(270, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(300, 200, 200)"/>
+      <use href="#featherEyes" transform="rotate(330, 200, 200)"/>
+      <g opacity="0.25">
+        <path d="M200 25 A175 175 0 0 1 375 200" fill="none" stroke="#c9a84c" stroke-width="0.4" stroke-dasharray="4 8"/>
+        <path d="M375 200 A175 175 0 0 1 200 375" fill="none" stroke="#1a7f8f" stroke-width="0.4" stroke-dasharray="4 8"/>
+        <path d="M200 375 A175 175 0 0 1 25 200" fill="none" stroke="#c9a84c" stroke-width="0.4" stroke-dasharray="4 8"/>
+        <path d="M25 200 A175 175 0 0 1 200 25" fill="none" stroke="#1a7f8f" stroke-width="0.4" stroke-dasharray="4 8"/>
+      </g>
+      <circle cx="200" cy="200" r="140" fill="none" stroke="#c9a84c" stroke-width="0.3" opacity="0.2"/>
+      <g opacity="0.2" stroke="#c9a84c" fill="none" stroke-width="0.5">
+        <path d="M200 55 Q220 70 210 90 Q200 75 190 90 Q180 70 200 55Z"/>
+        <path d="M345 200 Q330 220 310 210 Q325 200 310 190 Q330 180 345 200Z"/>
+        <path d="M200 345 Q180 330 190 310 Q200 325 210 310 Q220 330 200 345Z"/>
+        <path d="M55 200 Q70 180 90 190 Q75 200 90 210 Q70 220 55 200Z"/>
+      </g>
+      <defs>
+        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c9a84c"/>
+          <stop offset="50%" stop-color="#e8d48b"/>
+          <stop offset="100%" stop-color="#c9a84c"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <div class="inner-content">
+      <!-- Calligraphic Lord Ganapati SVG -->
+      <svg class="ganapati-icon" viewBox="0 0 160 185" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="ganaGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#ffd700"/>
+            <stop offset="50%" stop-color="#c9a84c"/>
+            <stop offset="100%" stop-color="#e8d48b"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Mukut (Crown) — pointed arch with dome -->
+        <path d="M80 4 Q72 0 65 7 Q60 13 66 19 Q73 11 80 13 Q87 11 94 19 Q100 13 95 7 Q88 0 80 4Z"
+              fill="url(#ganaGold)"/>
+        <path d="M70 17 Q80 8 90 17" fill="none" stroke="url(#ganaGold)" stroke-width="1.5" opacity="0.45"/>
+
+        <!-- Head — large round calligraphic sweep -->
+        <path d="M50 55 Q42 38 52 24 Q62 12 80 14 Q98 12 108 24 Q118 38 110 55 Q105 72 80 77 Q55 72 50 55Z"
+              fill="none" stroke="url(#ganaGold)" stroke-width="5" stroke-linejoin="round"/>
+
+        <!-- Left ear — big bold fan sweep outward -->
+        <path d="M52 42 Q26 32 19 54 Q14 72 34 76 Q46 78 52 66"
+              fill="none" stroke="url(#ganaGold)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 46 Q33 42 28 57 Q25 68 38 70"
+              fill="none" stroke="url(#ganaGold)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+
+        <!-- Right ear — mirror fan sweep -->
+        <path d="M108 42 Q134 32 141 54 Q146 72 126 76 Q114 78 108 66"
+              fill="none" stroke="url(#ganaGold)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M110 46 Q127 42 132 57 Q135 68 122 70"
+              fill="none" stroke="url(#ganaGold)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+
+        <!-- Eyes — bold calligraphic dots -->
+        <circle cx="67" cy="48" r="4" fill="url(#ganaGold)"/>
+        <circle cx="93" cy="48" r="4" fill="url(#ganaGold)"/>
+
+        <!-- Tilak -->
+        <circle cx="80" cy="35" r="2.2" fill="url(#ganaGold)" opacity="0.65"/>
+
+        <!-- Trunk — dramatic calligraphic sweep: down, curves hard left, curls up at tip -->
+        <path d="M80 77 Q77 90 68 100 Q54 114 40 126 Q30 135 28 146 Q27 154 36 156 Q46 158 52 148 Q54 142 50 138"
+              fill="none" stroke="url(#ganaGold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+        <!-- Body — large full round belly -->
+        <path d="M54 80 Q34 94 36 118 Q38 140 80 146 Q122 140 124 118 Q126 94 106 80"
+              fill="none" stroke="url(#ganaGold)" stroke-width="4.5" stroke-linecap="round"/>
+
+        <!-- Belly curve -->
+        <path d="M62 105 Q80 96 98 105"
+              fill="none" stroke="url(#ganaGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+
+        <!-- Left arm — sweeping down, holding modak -->
+        <path d="M46 94 Q26 100 20 114 Q17 122 24 127"
+              fill="none" stroke="url(#ganaGold)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="21" cy="130" r="6" fill="none" stroke="url(#ganaGold)" stroke-width="2.5" opacity="0.65"/>
+
+        <!-- Right arm — raised blessing (abhaya mudra) -->
+        <path d="M114 94 Q134 86 140 72 Q143 62 138 57"
+              fill="none" stroke="url(#ganaGold)" stroke-width="4" stroke-linecap="round"/>
+        <path d="M136 54 L141 48 M136 54 L143 52 M136 54 L134 48"
+              stroke="url(#ganaGold)" stroke-width="2" stroke-linecap="round" opacity="0.65"/>
+
+        <!-- Crossed legs -->
+        <path d="M52 138 Q46 154 56 162 Q68 168 80 168 Q92 168 104 162 Q114 154 108 138"
+              fill="none" stroke="url(#ganaGold)" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- Lotus petals at base -->
+        <path d="M42 164 Q56 157 68 164 Q80 169 92 164 Q104 157 118 164"
+              fill="none" stroke="url(#ganaGold)" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+        <path d="M48 170 Q64 163 80 170 Q96 163 112 170"
+              fill="none" stroke="url(#ganaGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.22"/>
+      </svg>
+
+      <p class="save-the-date-label">Save the Date</p>
+      <h1 class="couple-names">
+        Nandini
+        <span class="amp">&</span>
+        Pratik
+      </h1>
+      <p class="tagline">request the pleasure of your company</p>
+    </div>
+  </div>
+
+  <div class="gold-divider"></div>
+
+  <div class="scroll-indicator" onclick="document.getElementById('events').scrollIntoView({behavior:'smooth'})">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ===== EVENTS TIMELINE ===== -->
+<section class="events-section" id="events">
+  <div class="fade-in">
+    <p class="section-label">The Celebrations</p>
+
+    <div class="events-timeline">
+
+      <div class="event-card fade-in">
+        <div class="event-dot"></div>
+        <p class="event-date-badge">July 8, 2026 &middot; Wednesday</p>
+        <h3 class="event-name">Engagement Celebration</h3>
+        <p class="event-time">Evening &middot; Nagpur</p>
+      </div>
+
+      <div class="event-card fade-in">
+        <div class="event-dot"></div>
+        <p class="event-date-badge">July 9, 2026 &middot; Thursday</p>
+        <h3 class="event-name">Wedding</h3>
+        <p class="event-time">Morning &middot; Nagpur</p>
+      </div>
+
+      <div class="event-card fade-in">
+        <div class="event-dot"></div>
+        <p class="event-date-badge">July 9, 2026 &middot; Thursday</p>
+        <h3 class="event-name">Millennial Evening</h3>
+        <p class="event-time">Evening &middot; Nagpur</p>
+      </div>
+
+      <div class="event-card fade-in">
+        <div class="event-dot"></div>
+        <p class="event-date-badge">July 10, 2026 &middot; Friday</p>
+        <h3 class="event-name">Reception</h3>
+        <p class="event-time">Evening &middot; Nagpur</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PEACOCK EYE BORDER ===== -->
+<div class="peacock-border">
+  <div class="peacock-eye"></div><div class="peacock-eye"></div><div class="peacock-eye"></div>
+  <div class="peacock-eye"></div><div class="peacock-eye"></div><div class="peacock-eye"></div>
+  <div class="peacock-eye"></div><div class="peacock-eye"></div><div class="peacock-eye"></div>
+  <div class="peacock-eye"></div><div class="peacock-eye"></div><div class="peacock-eye"></div>
+  <div class="peacock-eye"></div><div class="peacock-eye"></div><div class="peacock-eye"></div>
+</div>
+
+<!-- ===== COUNTDOWN ===== -->
+<section class="countdown-section">
+  <div class="fade-in">
+    <p class="section-label">Counting Down to the Wedding</p>
+    <div class="countdown-grid" id="countdown">
+      <div class="countdown-item">
+        <span class="countdown-number" id="days">--</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="hours">--</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="minutes">--</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-number" id="seconds">--</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RSVP ===== -->
+<section class="rsvp-section">
+  <div class="fade-in">
+    <p class="section-label">Kindly Respond</p>
+    <p class="rsvp-text">
+      We would be honoured by your presence as we begin this beautiful journey together.
+      Please let us know if you can join us for the celebrations.
+    </p>
+    <a href="#" id="rsvp-link" class="rsvp-button">Confirm Your Presence</a>
+    <p class="rsvp-note">Kindly RSVP by June 25, 2026</p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <!-- Small calligraphic Ganapati in footer -->
+  <svg class="footer-ganapati" viewBox="0 0 160 185" xmlns="http://www.w3.org/2000/svg">
+    <path d="M80 4 Q72 0 65 7 Q60 13 66 19 Q73 11 80 13 Q87 11 94 19 Q100 13 95 7 Q88 0 80 4Z" fill="#c9a84c"/>
+    <path d="M50 55 Q42 38 52 24 Q62 12 80 14 Q98 12 108 24 Q118 38 110 55 Q105 72 80 77 Q55 72 50 55Z" fill="none" stroke="#c9a84c" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M52 42 Q26 32 19 54 Q14 72 34 76 Q46 78 52 66" fill="none" stroke="#c9a84c" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M108 42 Q134 32 141 54 Q146 72 126 76 Q114 78 108 66" fill="none" stroke="#c9a84c" stroke-width="4.5" stroke-linecap="round"/>
+    <circle cx="67" cy="48" r="4" fill="#c9a84c"/>
+    <circle cx="93" cy="48" r="4" fill="#c9a84c"/>
+    <path d="M80 77 Q77 90 68 100 Q54 114 40 126 Q30 135 28 146 Q27 154 36 156 Q46 158 52 148 Q54 142 50 138" fill="none" stroke="#c9a84c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M54 80 Q34 94 36 118 Q38 140 80 146 Q122 140 124 118 Q126 94 106 80" fill="none" stroke="#c9a84c" stroke-width="4.5" stroke-linecap="round"/>
+  </svg>
+  <p class="footer-text">Nandini & Pratik</p>
+  <p class="footer-subtext">With love and blessings</p>
+  <div class="gold-divider" style="margin: 1.5rem auto;"></div>
+</footer>
+
+<script>
+  // Countdown to 9th July 2026 12:00 PM IST
+  function updateCountdown() {
+    const wedding = new Date('2026-07-09T12:00:00+05:30');
+    const now = new Date();
+    const diff = wedding - now;
+
+    if (diff <= 0) {
+      document.getElementById('days').textContent = '0';
+      document.getElementById('hours').textContent = '00';
+      document.getElementById('minutes').textContent = '00';
+      document.getElementById('seconds').textContent = '00';
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Floating particles
+  const particlesContainer = document.getElementById('particles');
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.animationDuration = (6 + Math.random() * 10) + 's';
+    p.style.animationDelay = Math.random() * 8 + 's';
+    p.style.width = (2 + Math.random() * 4) + 'px';
+    p.style.height = p.style.width;
+    particlesContainer.appendChild(p);
+  }
+
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
